@@ -1,4 +1,6 @@
-#Script de  sauvegarde des VMs
+# folder_autosave by Salamafet
+
+#Script de  sauvegarde autonome
 #Entete vide pour eviter les erreur bash/sh
 
 
@@ -47,7 +49,7 @@ tar -cjf $chemin_destination/$nom_archive.tar -C $emplacement_origine $dossier_o
 echo "Termine !"
 
 # j = compression bzip2 (moins de place, plus long)
-# z = compression gzip  (plus de plus, moins long)
+# z = compression gzip  (plus de place, moins long)
 
 #On supprime les dossiers qui ont plus de 31 jours mais on garde chaque fichier de début de mois
 echo "Suppression des sauvegarde ayant plus de 31 jours..."
