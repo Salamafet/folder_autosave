@@ -18,4 +18,6 @@ With the previous example, the archive name appear like that: ```16/12/28-pictur
 
 -------------------
 
-**Working on :** Select between gzip or bzip2 compression
+**Next update :** 
+ -  Select between gzip or bzip2 compression
+ -  Translate the help and script comment in english
