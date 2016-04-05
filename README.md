@@ -3,7 +3,14 @@ Create backup of folder with simplicity.
 
 This script is make for run everyday with cron job.
 
-All backup older than 30 days are automaticaly deleted except the first backup of each month
+All backup older than 31 days are automaticaly deleted except the first backup of each month
+
+------------------
+
+./foder_autosave.sh [origin] [destination]
+
+Usage example: '''./folder_autosave.sh /home/user/pictures /media/disk1/backup'''
+
 
 -------------------
 
