@@ -54,7 +54,7 @@ echo "Termine !"
 #On supprime les dossiers qui ont plus de 31 jours mais on garde chaque fichier de début de mois
 echo "Suppression des sauvegarde ayant plus de 31 jours..."
 echo "(les sauvegarde datant du premier de chaque moi seront concervé)"
-find "${chemin_destination}" ! -name '01-*-*-*.tar' -mtime +31 -type f -exec rm -rf {} \;
+find "${chemin_destination}" ! -name '*-*-01-*.tar' -mtime +31 -type f -exec rm -rf {} \;
 #find /SAVE/$chemin_origine/ -mmin +15 -type d -exec rm -rf {} \; #dev
 echo "Termine"
 
