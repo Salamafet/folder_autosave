@@ -14,7 +14,7 @@ Usage example:
 
 If the backup folder does not exist, it is automatically created
 
-With the previous example, the archive name appear like that: ```16/12/28-pictures.tar
+With the previous example, the archive name appear like that: ```16/12/28-pictures.tar```
 
 -------------------
 
