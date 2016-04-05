@@ -7,7 +7,7 @@ All backup older than 31 days are automaticaly deleted except the first backup o
 
 ------------------
 
-./foder_autosave.sh [origin] [destination]
+```./foder_autosave.sh [origin] [destination]```
 
 Usage example: 
 ```sh
