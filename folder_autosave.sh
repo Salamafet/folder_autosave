@@ -3,6 +3,13 @@
 #Script de  sauvegarde autonome
 #Entete vide pour eviter les erreur bash/sh
 
+##########################
+# Type de compression
+
+compress_type = bzip2;
+
+# j = compression bzip2 (moins de place, plus long)
+# z = compression gzip  (plus de place, moins long)
 
 # On recupere nom du dossier dans les options de lancement
 chemin_origine=$1;
