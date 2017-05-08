@@ -12,12 +12,13 @@ All backup older than 31 days are automaticaly deleted except the first backup o
 Usage example:
 ```./folder_autosave.sh /home/user/pictures /media/disk1/backup```
 
+Open the file for change configuration (compression type, remove old backup)
+
 If the backup folder does not exist, it is automatically created
 
-With the previous example, the archive name appear like that: ```16/12/28-pictures.tar```
+With the previous example, the archive name appear like that: ```16-12-28-pictures.tar```
 
 -------------------
 
-**Next update :** 
- -  Select between gzip or bzip2 compression
+**Next update :**
  -  Translate the help and script comment in english

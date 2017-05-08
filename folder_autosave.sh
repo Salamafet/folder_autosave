@@ -3,19 +3,27 @@
 #Script de  sauvegarde autonome
 #Entete vide pour eviter les erreur bash/sh
 
-##########################
+###################################################################
 # Type de compression
+compress_type=1;
 
-compress_type = bzip2;
+# 1 = compression bzip2 (moins de place, plus long)
+# 2 = compression gzip  (plus de place, moins long)
 
-# j = compression bzip2 (moins de place, plus long)
-# z = compression gzip  (plus de place, moins long)
+####################################################################
+# Supression des anciennes backup
+remove_old_bakckup=1;
+# 1 = Suppresion des ancinnes backup
+# 0 = Ne pas supprimer les anciennes backup
+old_bakcup_days=15;
+# Nombre de jour après le quel supprimer une backup
+####################################################################
 
 # On recupere nom du dossier dans les options de lancement
 chemin_origine=$1;
 chemin_destination=$2;
 
-# On recupere juste le nom du dossier 
+# On recupere juste le nom du dossier
 dossier_origine=$(basename "${chemin_origine}")
 
 # On recupere la ou ce trouve l'archive
@@ -50,19 +58,31 @@ fi
 # Si il n'existe pas alors on le creer
 
 
+# Verification de la compression a utiliser
+
+if [ $compress_type = "1" ]; then
+	compress_argument="j";
+	echo "Utilisation de la compression bzip2"
+else
+	compress_argument="z";
+	echo "Utilisation de la compression gzip"
+fi
+
 # On lance une compression du dossier
 echo "Creation d'une archive de "${dossier_origine}" en cours..."
-tar -cjf "${chemin_destination}/${nom_archive}.tar" -C "${emplacement_origine}" "${dossier_origine}"
-echo "Termine !"
+tar -c${compress_argument}f "${chemin_destination}/${nom_archive}.tar" -C "${emplacement_origine}" "${dossier_origine}"
 
 # j = compression bzip2 (moins de place, plus long)
 # z = compression gzip  (plus de place, moins long)
 
-#On supprime les dossiers qui ont plus de 31 jours mais on garde chaque fichier de début de mois
-echo "Suppression des sauvegarde ayant plus de 31 jours..."
-echo "(les sauvegarde datant du premier de chaque moi seront concervé)"
-find "${chemin_destination}" ! -name '*-*-01-*.tar' -mtime +31 -type f -exec rm -rf {} \;
-#find /SAVE/$chemin_origine/ -mmin +15 -type d -exec rm -rf {} \; #dev
-echo "Termine"
+if [ $remove_old_bakckup = "1" ]; then
+	#On supprime les dossiers qui ont plus de 31 jours mais on garde chaque fichier de début de mois
+	echo "Suppression des sauvegarde ayant plus de "${old_bakcup_days}" jours..."
+	echo "(les sauvegarde datant du premier de chaque moi seront concervé)"
+	find "${chemin_destination}" ! -name '*-*-01-*.tar' -mtime +${old_bakcup_days} -type f -exec rm -rf {} \;
+	#find /SAVE/$chemin_origine/ -mmin +15 -type d -exec rm -rf {} \; #dev
+fi
+
+echo "Termine !"
 
 echo ""
