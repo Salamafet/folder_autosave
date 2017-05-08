@@ -1,9 +1,13 @@
 # folder_autosave
 Create backup of folder with simplicity.
 
-This script is make for run everyday with cron job.
+This script is make for run with cron job.
 
-All backup older than 31 days are automaticaly deleted except the first backup of each month
+You can choose the type of compression:
+- bzip2 : slower but smaller  
+- gzip : faster but biger
+
+The script can automatically delete old backup after definited days
 
 ------------------
 
@@ -22,3 +26,4 @@ With the previous example, the archive name appear like that: ```16-12-28-pictur
 
 **Next update :**
  -  Translate the help and script comment in english
+ - Backup log
